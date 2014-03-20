@@ -26,11 +26,15 @@ threejsWorks
 	   * 垂直拖动烧杯中的白色平面，设置水面高度，之后倾倒开始
 	   * 还有更多的操作自己探索吧！
 	
-* [drags]()
+* [drags](https://github.com/threejsHubs/threejsWorks/tree/master/yanjixian/drags)
 	* 简介  
-		拖拽插件,鼠标左键水平移动，右键垂直移动，按住shift绕y轴旋转
+		用于threejs的与物体交互的插件类，可以实现用鼠标平移、旋转物体。
 	* 使用方法  
-		xx
+    	* 只用3行代码：  
+    var drags = new Drags();  
+	drags.init({scene: scene, camera:camera, canvas:container, canvasWidth:window.innerWidth ,canvasHeight: window.innerHeight});  
+	drags.add(obj);
+		* 就可以实现obj的鼠标左键水平移动，右键垂直移动，按住shift绕y轴旋转
 
 ### yanhaijing
 
