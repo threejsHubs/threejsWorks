@@ -28,7 +28,7 @@ threejsWorks
 	
 * [drags]()
 	* 简介  
-		xx
+		拖拽插件,鼠标左键水平移动，右键垂直移动，按住shift绕y轴旋转
 	* 使用方法  
 		xx
 
