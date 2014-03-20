@@ -1,0 +1,204 @@
+body {
+    font-family: Monospace;
+    background-color: #000;
+    color: #fff;
+    margin: 0px;
+    overflow: hidden;
+    text-align : center;
+}
+
+#top {
+    position: absolute;
+    width:100%;
+} 
+
+#left {
+    position: absolute;
+    left : 0px;
+    bottom : 0px;
+    width:100px;
+    height:100px;
+}
+
+#right {
+    position: absolute;
+    bottom : 0px;
+    right : 0px;
+   height:100px;
+   margin-bottom: 0px;
+}
+
+#right .navbar .nav > li > ul:after {
+    border-color: #34495E rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 9px 9px 0;
+    bottom: -9px;
+    content: "";
+    height: 0;
+    right: 15px;
+    position: absolute;
+    width: 0;
+}
+#right .navbar .nav > li > ul:before {
+	display: none;
+}
+#right .navbar .nav > li:hover > ul {
+    opacity: 1;
+    top: auto;
+    left: -300%;
+    bottom: 46px;
+    visibility: visible;
+    z-index: 100;
+}
+#right .navbar .nav > li > ul {
+    padding-left: 0;
+	 top: auto;
+    left: -300%;
+     bottom: 46px;
+}
+#right .navbar .nav > li {
+	padding-right: 5px;
+}
+#right .navbar .nav > li > ul li a{
+    height: 36px; 
+}
+#right .navbar .nav > li > ul li a > label {
+    left: -10px;
+    position: relative;
+    top: -11px;
+}
+#right .navbar .nav > li > ul li a > div {
+     top: -2px;
+     left: 35px;
+}
+#right .navbar .nav > li > ul li ul {
+    left: -101%;
+}
+
+
+#top .navbar .nav > li > ul:before {
+    display: none;
+}
+#top .navbar .nav > li:hover > ul {
+     opacity: 1;
+    top: 80%;
+    visibility: visible;
+    z-index: 100;
+}
+#top .navbar .nav > li {
+    position: static;
+}
+#top .navbar .nav > li > ul {
+    width:70%;
+    padding-top: 13px;
+    left: 15%;
+    right: 15%;
+    top: 80%;
+     list-style-type: none;
+    text-align: center;
+    font-size: 0px;
+    height:130px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+#top .navbar .nav > li > ul li {
+	display: inline-block;  
+    position: relative;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    padding-top:10px;
+    white-space: normal;
+}
+#top .navbar {
+    margin-bottom: 0;
+    min-height: 0;
+}
+#top .navbar .nav{
+    float: none;
+}
+#top .navbar .nav ul li:first-child {
+    border-radius: 6px 0 0 6px;
+}
+#top .navbar .nav ul li:last-child {
+    border-radius: 0  6px 6px 0;
+}
+#top .navbar .nav > li:hover .arrow {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #34495E;
+    border-style: solid;
+    border-width: 0 9px 9px;
+    content: "";
+    height: 0;
+    left: 30%;
+    position: absolute;
+    bottom: -30%;
+    width: 0;
+}
+#top .navbar .nav > li .btn {
+    position: relative;
+}
+#top .navbar .nav > li > ul > li img {
+    width: 100px;
+    height: 80px;
+}
+
+
+
+#left .navbar .nav > li:hover > ul {
+    opacity: 1;
+    top: auto;
+    bottom: 46px;
+    visibility: visible;
+    z-index: 100;
+}
+#left .navbar .nav > li > ul {
+    padding-left: 0;
+        top: auto;
+    bottom: 46px;
+}
+#left .navbar .nav > li > ul:after {
+    border-color: #34495E rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 9px 9px 0;
+    bottom: -9px;
+    content: "";
+    height: 0;
+    left: 15px;
+    position: absolute;
+    width: 0;
+}
+#left .navbar .nav > li > ul:before {
+    display: none;
+}
+#left .navbar {
+    padding-left: 10px
+}
+
+#info {
+    position : absolute;
+    left : 35%;
+    top : 18%;
+    z-index: 50;
+    width: 30%;
+    height: 25%;
+    font: bolder 30px monospace;
+    text-align: center;
+
+}
+
+.loading-indicator {
+    height: 40px;
+    width: 40px;
+    background: url( 'images/loading.gif' );
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.loading-indicator-overlay {
+    background-color: #FFFFFF;
+    opacity: 0.8;
+    filter: alpha(opacity = 80);
+
+}

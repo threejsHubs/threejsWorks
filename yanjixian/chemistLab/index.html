@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>化学虚拟实验室</title>
+		<meta charset="utf-8">
+        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="libs/Flat-UI/css/flat-ui.css" />
+        <link href="libs/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="custom.css" />
+
+        <link rel="shortcut icon" type="image/x-icon" href="images/tree.ico" media="screen" />
+	</head>
+	<body>
+        <div id="top" >
+        <div class="navbar navbar-info">
+           <ul class="nav navbar-nav">
+            	<li>
+                    <div class="btn btn-info" >器材<div class="arrow" ></div></div>
+                    <ul id = "equipments">
+                     
+                    </ul>
+                    
+                </li>
+                <li>
+                    <div class="btn btn-info" >药品  <div class="arrow" ></div></div>
+                     <ul id="chemicalList">
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <div id="left">
+            <div class="navbar navbar-info">
+                <ul class="nav navbar-nav">
+                    <li>
+                    <div class="btn btn-info btn-sm" data-toggle="button">工具</div>
+                    <ul>
+                        <li><a href="#" id="match">火柴</a>
+                        </li>
+                        <li>
+                            <a href="#">温度计</a>
+                        </li>
+                        <li><a href="#">PH 试纸</a></li>
+                        <li><a href="#" id="glassBar">玻璃棒</a></li>
+                    </ul> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="right" >
+            <div class="navbar navbar-info">
+            <ul class="nav navbar-nav">
+            	<li>
+                      <div class="btn btn-info btn-sm" data-toggle="button">重置</div>
+                      <ul>
+                      	<li id = "resetDesk"><a href="#">桌面</a></li>
+                      	<li id = "resetCamera"><a href="#">视角</a></li>
+                      </ul>
+                </li>
+                <li>
+                    <div class="btn btn-info btn-sm" data-toggle="button">提示</div>
+                    <ul>
+                        <li id="infoPad_show"><a href="#">显示</a></li>
+                        <li id="infoPad_filter"><a href="#">过滤</a></li>
+                    </ul>
+                </li>
+                <li>
+                       <div class="btn btn-info btn-sm" data-toggle="button">设置</div>
+                      <ul>
+                          <li>
+                            <a href="#"><label for="soundPad">声音</label>
+                              <div class="switch switch-small" data-on="success" id="soundPad">
+                                  <input type="checkbox" checked />
+                              </div>
+                            </a>
+                          </li>
+                        <li>
+                          <a href="#">桌布</a>
+                          <ul>
+                            <li id="table_blue" ><a href="#">蓝色</a></li>
+                            <li id="table_travel"><a href="#">野餐</a></li>
+                            <li id="table_wow"><a href="#">山口山</a></li>
+                          </ul>  
+                        </li>
+
+                        <li><a href="#"><label for="shadowPad">灯光</label>
+                              <div class="switch switch-small" data-on="success" id="shadowPad">
+                                  <input type="checkbox" checked />
+                              </div>
+                             </a>
+                         </li>
+                      </ul> 
+                </li>
+            </ul>
+            </div>
+        </div>
+        <div id="container" ></div>
+        <div id="info">
+
+
+        </div>
+
+        <div id="loading-indicator-undefined-overlay" class="loading-indicator-overlay" style="width: 100%; height: 100%; left: 0px; position: absolute; top: 0px; z-index: 5000;"></div>
+        <div id="loading-indicator-undefined" class="loading-indicator" style="position: absolute; z-index: 5001; left: 50%; top: 50%;"></div>
+
+        <!-- 加载js库，发布时用mini版 --> 
+        <script type="text/javascript" src="libs/createjs/createjs/events/Event.js"></script>
+        <script type="text/javascript" src="libs/createjs/createjs/events/EventDispatcher.js"></script>
+        <script type="text/javascript" src="libs/createjs/createjs/utils/IndexOf.js"></script>
+        <script type="text/javascript" src="libs/createjs/createjs/utils/Proxy.js"></script>
+        <script type="text/javascript" src="libs/createjs/preloadjs/AbstractLoader.js"></script>
+        <script type="text/javascript" src="libs/createjs/preloadjs/LoadQueue.js"></script>
+        <script type="text/javascript" src="libs/createjs/preloadjs/TagLoader.js"></script>
+        <script type="text/javascript" src="libs/createjs/preloadjs/XHRLoader.js"></script>
+        <script type="text/javascript" src="libs/createjs/preloadjs/InjectScriptPlugin.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/utils/UID.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/utils/Ticker.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/geom/Matrix2D.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/geom/Point.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/geom/Rectangle.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/Shadow.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/SpriteSheet.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/Graphics.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/DisplayObject.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/Container.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/Stage.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/Bitmap.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/Sprite.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/BitmapAnimation.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/BitmapText.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/Shape.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/Text.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/display/DOMElement.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/events/MouseEvent.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/filters/Filter.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/ui/ButtonHelper.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/ui/Touch.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/utils/SpriteSheetUtils.js"></script>
+        <script type="text/javascript" src="libs/createjs/easeljs/utils/SpriteSheetBuilder.js"></script>
+        <script type="text/javascript" src="libs/createjs/soundjs/Sound.js"></script>
+        <script type="text/javascript" src="libs/createjs/soundjs/WebAudioPlugin.js"></script>
+        <script type="text/javascript" src="libs/createjs/soundjs/HTMLAudioPlugin.js"></script>
+        <script type="text/javascript" src="libs/createjs/tweenjs/Tween.js"></script>
+        <script type="text/javascript" src="libs/createjs/tweenjs/Ease.js"></script>            
+        <!-- threejs -->
+        <script type="text/javascript" src="libs/three.js"></script>
+        <script type="text/javascript" src="libs/CurveExtras.js"></script>
+        <script type="text/javascript" src="libs/ColumnControls.js"></script>
+        <script type="text/javascript" src="libs/OBJLoader.js"></script>
+        <script type="text/javascript" src="libs/MTLLoader.js"></script>
+        <script type="text/javascript" src="libs/OBJMTLLoader.js"></script>
+        <script type="text/javascript" src="libs/EffectComposer.js"></script>
+		<script type="text/javascript" src="libs/ShaderPass.js"></script>
+		<script type="text/javascript" src="libs/MaskPass.js"></script>
+		<script type="text/javascript" src="libs/RenderPass.js"></script>
+
+        <script type="text/javascript" src="libs/Tween.js"></script>
+        <script type="text/javascript" src="libs/Sparks.js"></script>
+		<script type="text/javascript" src="libs/Pillar.js"></script>
+        <script type="text/javascript" src="libs/physi.js"></script>
+        <script type="text/javascript" src="libs/simplex-noise.js"></script>
+        <!-- bootstrap -->
+        <script type="text/javascript" src="libs/jquery-1.10.js"></script>
+        <script type="text/javascript" src="libs/jquery.showLoading.js"></script>
+        <script type="text/javascript" src="libs/bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="libs/jquery.mCustomScrollbar.js" defer="defer"></script>
+        <script type="text/javascript" src="libs/underscore.js"></script>
+
+
+        <!-- Flat-UI -->
+        <script type="text/javascript" src="libs/Flat-UI/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script type="text/javascript" src="libs/Flat-UI/js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" src="libs/Flat-UI/js/bootstrap-select.js"></script>
+        <script type="text/javascript" src="libs/Flat-UI/js/bootstrap-switch.js"></script>
+        <script type="text/javascript" src="libs/Flat-UI/js/flatui-checkbox.js"></script>
+        <script type="text/javascript" src="libs/Flat-UI/js/flatui-radio.js"></script>
+        <script type="text/javascript" src="libs/Flat-UI/js/jquery.tagsinput.js"></script>
+        <script type="text/javascript" src="libs/Flat-UI/js/jquery.placeholder.js"></script>       
+        <!-- shader -->
+        <script src="shader/CopyShader.js"></script>
+        <script src="shader/ConvolutionShader.js"></script>
+        <script src="shader/ColorifyShader.js"></script>
+        <script src="shader/WaterShader.js"></script>
+        
+        <!-- 自己开发的js-->
+        <script type="text/javascript" src="initialize.js"></script>
+        <script type="text/javascript" src="utils.js"></script>
+        <script type="text/javascript" src="base.js"></script>
+        <script type="text/javascript" src="thingsList.js"></script>
+        <script type="text/javascript" src="dom.js"></script>
+        <script type="text/javascript" src="move.js"></script>
+        <script type="text/javascript" src="platform.js"></script>
+        <script type="text/javascript" src="beaker.js"></script>
+        <script type="text/javascript" src="bottle.js"></script>
+        <script type="text/javascript" src="ironSupport.js"></script>
+        <script type="text/javascript" src="testTube.js"></script>
+        <script type="text/javascript" src="stick.js"></script>
+        <script type="text/javascript" src="burner.js"></script>
+        <script type="text/javascript" src="pipe.js"></script>
+        <script type="text/javascript" src="fire.js"></script>
+        <script type="text/javascript" src="animation.js"></script>
+        <script type="text/javascript" src="reactions.js"></script>
+        
+        <script type="text/javascript">
+            Chemist.init(function() {
+                var plane = Chemist.plane = new Chemist.Platform({img:"textures/Blue.jpg"});
+                this.objects.push(plane);
+                this.scene.add(plane);
+
+            });
+            Chemist.postProcess();
+            Chemist.animate(Chemist.composerRender);
+        </script>
+    </body>
+</html>
